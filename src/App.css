@@ -1,25 +1,131 @@
-.App {
+:root {
+  --color-1: #274472;
+  --color-2: #41729f;
+  --color-3: #5885af;
+  --color-4: #c3e0e5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-4);
+  word-break: break-word;
+}
+
+.app {
+  padding: 1rem;
+  background-color: var(--color-4);
+  color: var(--color-1);
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  background: linear-gradient(-60deg, var(--color-4) 20%, var(--color-2) 100%);
+  justify-content: center;
+}
+
+.header {
+  margin: auto;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.editor-box,
+.previewer-box {
+  width: 90%;
+  border: 2px solid var(--color-1);
+  border-radius: 1rem;
+  box-shadow: 0px 4px 8px var(--color-2);
+  padding-bottom: 0.5rem;
+}
+
+#editor,
+#preview {
+  font-size: 18px;
+  font-weight: 400;
+  width: 100%;
+  height: 60vh;
+  overflow-y: auto;
+  background-color: var(--color-4);
+  color: var(--color-1);
 }
 
 textarea {
-  width: 80%;
-  height: 200px;
-  margin: 20px 0;
-  padding: 10px;
-  font-size: 16px;
-  font-family: 'Courier New', Courier, monospace;
+  border: none;
+  border-radius: 1rem;
+  padding: 1rem;
+  outline: none;
+  resize: none;
 }
 
 #preview {
-  width: 80%;
-  padding: 20px;
-  background: var(--color-1);
-  border: 1px solid var(--color-3);
-  box-shadow: 0px 6px 10px var(--color-3);
-  border-radius: 4px;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+.title-heading {
+  border-bottom: 2px solid var(--color-1);
+  box-shadow: 0px 4px 8px var(--color-3);
+  padding: 0.5rem;
+  background-color: var(--color-1);
+  color: var(--color-4);
+  border-radius: 0.8rem 0.8rem 0 0;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .editor-box,
+  .previewer-box {
+    width: 50%;
+  }
+
+  #editor,
+  #preview {
+    height: 70vh;
+  }
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-4);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-2);
+  border-radius: 10px;
+  border: 3px solid var(--color-4);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-3);
 }

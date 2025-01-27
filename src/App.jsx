@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { syncScroll } from "./utils";
 import "./App.css";
 import Editor from "./components/Editor";
 import Previewer from "./components/Previewer";
@@ -32,10 +33,11 @@ There's also [links](https://www.freecodecamp.org), and
 
 And if you want to get really crazy, even tables:
 
-Wild Header | Crazy Header | Another Header?
------------- | ------------- | -------------
-Your content can | be here, and it | can be here....
-And here. | Okay. | I think we get it.
+| Wild Header    | Crazy Header     | Another Header?  |
+|----------------|------------------|------------------|
+| Your content can | be here, and it  | can be here....  |
+| And here.      | Okay.            | I think we get it.|
+
 
 - And of course there are lists.
   - Some are bulleted.
@@ -51,11 +53,32 @@ And here. | Okay. | I think we get it.
 
   const [markdown, setMarkdown] = useState(initialMarkdown);
 
+  const editorRef = useRef(null);
+  const previewRef = useRef(null);
+
+  useEffect(() => {
+    const editor = editorRef.current;
+    const preview = previewRef.current;
+
+    // Use syncScroll for bi-directional scrolling
+    const cleanUpEditorToPreview = syncScroll(editor, preview);
+    const cleanUpPreviewToEditor = syncScroll(preview, editor);
+
+    // Cleanup listeners on component unmount
+    return () => {
+      cleanUpEditorToPreview();
+      cleanUpPreviewToEditor();
+    };
+  }, []);
+
   return (
-    <>
-      <Editor markdown={markdown} setMarkdown={setMarkdown} />
-      <Previewer markdown={markdown} />
-    </>
+    <div className="app">
+      <h1 className="header">Markdown Previewer</h1>
+      <div className="container">
+        <Editor markdown={markdown} setMarkdown={setMarkdown} ref={editorRef} />
+        <Previewer markdown={markdown} ref={previewRef} />
+      </div>
+    </div>
   );
 }
 
