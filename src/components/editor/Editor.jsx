@@ -10,6 +10,7 @@ const Editor = forwardRef(({ markdown, setMarkdown }, ref) => {
     <div className="editor-box">
       <h2 className="title-heading">Editor</h2>
       <textarea
+        aria-label="Markdown editor"
         name="inputText"
         id="editor"
         value={markdown}

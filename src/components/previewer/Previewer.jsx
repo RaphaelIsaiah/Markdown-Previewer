@@ -10,7 +10,7 @@ const Previewer = forwardRef(({ markdown }, ref) => {
   return (
     <div className="previewer-box">
       <h2 className="title-heading">Previewer</h2>
-      <div id="preview" ref={ref}>
+      <div aria-label="Markdown previewer" id="preview" ref={ref}>
         <ReactMarkdown
           remarkPlugins={[remarkGfm, remarkBreaks]}
           rehypePlugins={[rehypeRaw]}

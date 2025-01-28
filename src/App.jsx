@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { syncScroll } from "./utils";
 import "./App.css";
-import Editor from "./components/Editor";
+import Editor from "./components/editor/Editor";
 import Previewer from "./components/previewer/Previewer";
 
 function App() {
