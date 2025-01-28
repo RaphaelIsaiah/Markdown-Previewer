@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkBreaks from "remark-breaks";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
+import "./previewer.css";
 
 const Previewer = forwardRef(({ markdown }, ref) => {
   return (

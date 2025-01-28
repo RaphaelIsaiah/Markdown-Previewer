@@ -63,6 +63,17 @@ body {
   overflow-y: auto;
   background-color: var(--color-4);
   color: var(--color-1);
+  /* Fix for blurry scrolling */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+  -webkit-overflow-scrolling: touch;
+  perspective: 1000px;
+  text-rendering: optimizeLegibility;
+  contain: strict;
+  contain: layout style paint;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 textarea {
@@ -89,9 +100,6 @@ textarea {
   text-align: center;
 }
 
-img {
-  max-width: 100%;
-}
 
 @media screen and (min-width: 768px) {
   .container {

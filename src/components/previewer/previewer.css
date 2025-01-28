@@ -1,0 +1,133 @@
+a/* General Markdown Styling */
+
+:root {
+  --color-1: #274472;
+  --color-2: #41729f;
+  --color-3: #5885af;
+  --color-4: #c3e0e5;
+}
+
+#preview {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  padding: 1rem;
+  background-color: var(--color-4);
+  /* Fix for blurry scrolling */
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+  -webkit-overflow-scrolling: touch;
+  perspective: 1000px;
+  text-rendering: optimizeLegibility;
+  contain: strict;
+  contain: layout style paint;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Headings */
+#preview h1,
+#preview h2,
+#preview h3,
+#preview h4,
+#preview h5,
+#preview h6 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: bold;
+}
+
+#preview h1 {
+  font-size: 2em;
+  border-bottom: 2px solid var(--color-2);
+  padding-bottom: 0.3em;
+}
+
+#preview h2 {
+  font-size: 1.75em;
+  border-bottom: 1px solid var(--color-2);
+  padding-bottom: 0.3em;
+}
+
+#preview h3 {
+  font-size: 1.5em;
+}
+
+/* Paragraphs */
+#preview p {
+  margin-bottom: 1em;
+}
+
+/* Lists */
+#preview ul,
+#preview ol {
+  margin-bottom: 1em;
+  padding-left: 2em;
+}
+
+#preview li {
+  margin-bottom: 0.5em;
+}
+
+/* Blockquotes */
+#preview blockquote {
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  border-left: 4px solid var(--color-1);
+  color: var(--color-4);
+  background-color: var(--color-2);
+}
+
+/* Code Blocks */
+#preview pre {
+  margin: 1em 0;
+  padding: 1em;
+  background-color: var(--color-2);
+  border-radius: 4px;
+  overflow-x: auto;
+  color: var(--color-4);
+}
+
+#preview code {
+  font-family: "Courier New", Courier, monospace;
+  background-color: var(--color-2);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  color: var(--color-4);
+}
+
+/* Tables */
+#preview table {
+  width: 100%;
+  margin: 1em 0;
+  border-collapse: collapse;
+}
+
+#preview th,
+#preview td {
+  padding: 0.75em;
+  border: 2px solid var(--color-1);
+}
+
+#preview th {
+  background-color: var(--color-2);
+  font-weight: bold;
+  color: var(--color-4);
+}
+
+/* Links */
+#preview a {
+  color: var(--color-2);
+  text-decoration: none;
+}
+
+#preview a:hover {
+  text-decoration: underline;
+}
+
+/* Images */
+#preview img {
+  max-width: 100%;
+  height: auto;
+  margin: 1em 0;
+}
